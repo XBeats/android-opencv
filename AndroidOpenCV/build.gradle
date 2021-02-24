@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+android {
+
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 29
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+// 发布包相关信息
+ext {
+    bintray_siteUrl = 'https://github.com/XBeats/android-opencv' // 项目的主页 例：https://github.com/XBeats/and_swipeback
+    bintray_gitUrl = 'https://github.com/XBeats/android-opencv.git' // Git仓库的url 例：https://github.com/XBeats/and_swipeback.git
+    bintray_group = 'com.xbeats' // Maven Group ID for the artifact，一般填你唯一的包名 例：com.aitangba
+    bintray_version = '3.2.0' // This is the library version used when deploying the artifact， 版本号 例：1.0.0
+    bintray_desc = 'Android OpenCV' // 项目描述 例： Android activity Swipe Back
+    bintray_name = 'AndroidOpenCV'  // 发布到JCenter上的项目名字 例：SwipeBack
+}
+
+apply from: './upload.gradle'
